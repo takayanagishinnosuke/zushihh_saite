@@ -38,7 +38,7 @@ function getChar() {
   ));
 }
 function loop(fn, delay) {
-  let stamp = Date.now();
+  let stamp = Date.now();//日付の取得
   function _loop() {
     if (Date.now() - stamp >= delay) {
       fn(); stamp = Date.now();
@@ -49,11 +49,11 @@ function loop(fn, delay) {
 }
 class Char {
   constructor() {
-    this.element = document.createElement('span');
+    this.element = document.createElement('span');//spanの生成
     this.mutate();
   }
   mutate() {
-    this.element.textContent = getChar();
+    this.element.textContent = getChar();//elementのtextContent取得
   }
 }
 class Trail {
@@ -135,3 +135,8 @@ const main = document.querySelector('main');
 for (let i = 0; i < 50; ++i) {
   new Rain({ target: main, row: 100 });
 };
+
+//リロード時にスクロールTOPに戻す
+$(function() {
+  $('html,body').animate({ scrollTop: 0 }, '1');
+});

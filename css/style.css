@@ -1,45 +1,5 @@
 @charset "ytf-8";
 
-/* ���[�f�B���O��ʂ�css */
-#splash-logo {
-  position: absolute;
-  color:#fff;
-  font-weight: bold;
-  font-size: 8em;
-  cursor: pointer;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-name: fade;
-  animation-duration: 9s;
-  animation-timing-function:ease-in-out ;
-  animation-fill-mode: forwards;
-  /* text-shadow: 0 0 80px #fff; */
-  cursor: none;
-  transition: 2s;
-}
-
-#splash-logo:hover{
-  text-shadow:0 0 100px #fff;
-  opacity: 0.1;
-}
-
-@keyframes fade{
-  0%{
-    /* transform: scale(20); */
-    opacity: 0;
-  }
-  100%{
-    /* transform: scale(8); */
-    opacity: 1;
-    text-shadow: 0 0 60px #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
-}
-
-/* ��ʑJ�ڌ��css */
 html{
   width: 100%; 
   margin: 0; 
@@ -54,15 +14,19 @@ html{
 body {
   cursor: none; 
   overflow: hidden;
-  display: flex; 
-  flex-wrap: wrap;
+  display: flex;
+  /* flex-wrap: wrap; */
   align-items: center; 
-  justify-content: center;
+  justify-content: center; 
   background: #000; 
 }
 .main {
   display: flex;
   flex: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 p {
@@ -78,17 +42,63 @@ span {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
+#splash-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color:#fff;
+  font-weight: bold;
+  font-size: 4em;
+  cursor: pointer;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  animation-name: fade;
+  animation-duration: 9s;
+  animation-timing-function:ease-in-out ;
+  animation-fill-mode: none;
+  text-shadow: 0 0 60px #fff;
+  opacity: 0.7;
+  cursor: none;
+  transition: 1s;
+  z-index: 2;
+}
+
+#splash-logo:hover{
+  text-shadow:0 0 100px #fff;
+  opacity: 1;
+}
+
+@keyframes fade{
+  0%{
+    /* transform: scale(20); */
+    opacity: 0;
+  }
+  100%{
+    /* transform: scale(8); */
+    opacity: 0.7;
+    text-shadow: 0 0 60px #fff;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+  }
+}
+
 #about{
   text-align: center;
   color: #fff;
   position: absolute;
   width: 50%;
-  top: 250%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 140%;
+  left: 25%;
   line-height: 1em;
   text-shadow: 0 0 40px #fff;
+  z-index: 3;
 }
+
+/* 確認用 */
+/* .about1{
+  background-color: blue;
+} */
 
 
 #about h1{
@@ -108,7 +118,7 @@ span {
   height: 10px;
   background: rgb(12, 145, 85, 0.8);
   border-radius: 50%;
-  z-index: 1000;
+  z-index: 500;
   transition: width 0.5s, height 0.5s top 0.5s left 0.5s;
   transform: translate(0,0);
   pointer-events: none;
@@ -153,8 +163,8 @@ span {
 
 .contact{
   text-align: center;
-  margin-top:60% ;
-  margin-bottom: 40px;
+  margin-top:20% ;
+  margin-bottom: 80px;
 }
 .btn{
   margin-top: 60px;
@@ -172,23 +182,30 @@ span {
   opacity: 0.2;
   transform: translate(3px,3px);
 }
-footer{
+.footer{
+  position: absolute;
   color: #fff;
   font-size: 15px;
   height: 40px;
-  padding-top: 10px;
+  width: 100%;
+  padding-top: 13px;
   text-align: center;
 }
 
 
-/* �ȉ�768*1190�� */
+/*768から1190px */
 @media screen and (min-width:768px) and (max-width:1190px) {
+
+  .main{
+    left: 15%;
+  }
+
   #splash-logo{
-    font-size: 70px;
+    font-size: 38px;
   }
 
   #about{
-    top:160%;
+    top:140%;
     width: 50%;
 
   }
@@ -239,3 +256,164 @@ footer{
 
 }
 
+/* 500pxから766px */
+@media screen and (min-width:500px) and (max-width:766px) {
+
+  .main{
+    left: 5%;
+  }
+
+  #splash-logo{
+    font-size: 35px;
+  }
+
+  #about{
+    top:140%;
+    width: 50%;
+  }
+  
+  span{
+    width: 1vmax;
+    font-size: 0.5vmax;
+  }
+
+  #about p{
+    font-size: 0.8em;
+  }
+
+  #about h1{
+    font-size: 1.5em;
+  }
+
+  #box1 img{
+    width: 150px;
+  }
+  #box2 img{
+    width: 150px;
+  }
+  #box3 img{
+    width: 150px;
+  }
+  #box1{
+    width: 150px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #box2{
+    width: 150px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #box3{
+    width: 150px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #mtext{
+    margin-top: 10%;
+  }
+
+  .contact{
+    margin-top: 10%;
+  }
+ 
+  .contact h3{
+    font-size: 0.3em;
+  }
+  .btn{
+    margin-top: 15px;
+  }
+  #btn{
+    width: 25vw;
+    height: 6vw;
+    font-size: 0.1em;
+  }
+
+  .footer{
+    font-size: 0.1em;
+  }
+
+}
+
+/* 350pxから767px */
+@media screen and (min-width:375px) and (max-width:499px) {
+
+  .main{
+    left: 5%;
+  }
+
+  #splash-logo{
+    font-size: 35px;
+  }
+
+  #about{
+    top:140%;
+    width: 50%;
+  }
+  
+  span{
+    width: 1vmax;
+    font-size: 0.5vmax;
+  }
+
+  #about p{
+    font-size: 0.8em;
+  }
+
+  #about h1{
+    font-size: 1.5em;
+  }
+
+  #member{
+    display:block!important;
+  }
+  #box1 img{
+    width: 188px;
+  }
+  #box2 img{
+    width: 188px;
+  }
+  #box3 img{
+    width: 188px;
+  }
+  #box1{
+    width: 188px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #box2{
+    width: 188px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #box3{
+    width: 188px;
+    text-align: center;
+    font-size: 0.2em;
+  }
+  #mtext{
+    margin-top: 10%;
+  }
+
+  .contact{
+    margin-top: 10%;
+  }
+ 
+  .contact h3{
+    font-size: 0.3em;
+  }
+  .btn{
+    margin-top: 15px;
+  }
+  #btn{
+    width: 25vw;
+    height: 6vw;
+    font-size: 0.1em;
+  }
+
+  .footer{
+    font-size: 0.1em;
+  }
+
+}
+/* 200pxから374px */
