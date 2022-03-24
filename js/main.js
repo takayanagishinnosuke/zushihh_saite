@@ -136,7 +136,7 @@ for (let i = 0; i < 50; ++i) {
   new Rain({ target: main, row: 100 });
 };
 
-//リロード時にスクロールTOPに戻す
+//リロード時にスクロールTOPに戻す処理
 $(function() {
   $('html,body').animate({ scrollTop: 0 }, '1');
 });
