@@ -1,10 +1,11 @@
-// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^[‚Ì‹Lq
-let cursor = document.getElementById('cursor');//ƒJ[ƒ\ƒ‹‚Ìdivæ“¾
-//ƒJ[ƒ\ƒ‹‚Ìdivƒ^ƒO‚ğƒ}ƒEƒX‚É’Ç]‚³‚¹‚é
+
+// ï¿½}ï¿½Eï¿½Xï¿½|ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½Ì‹Lï¿½q
+let cursor = document.getElementById('cursor');//ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½divï¿½æ“¾
+//ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½divï¿½^ï¿½Oï¿½ï¿½ï¿½}ï¿½Eï¿½Xï¿½É’Ç]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 document.addEventListener('mousemove' , function(e){
   cursor.style.transform = 'translate(' + e.clientX + 'px,' +e.clientY + 'px)';
 });
-//ƒ^ƒCƒgƒ‹ƒzƒo[‚ÉƒNƒ‰ƒX’Ç‰Á
+//ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½zï¿½oï¿½[ï¿½ï¿½ï¿½ÉƒNï¿½ï¿½ï¿½Xï¿½Ç‰ï¿½
 let title = document.getElementById('splash-logo')
   title.addEventListener('mouseover',function(){
     cursor.classList.add('cursor--hover');
@@ -13,7 +14,7 @@ let title = document.getElementById('splash-logo')
     cursor.classList.remove('cursor--hover');
   });
 
-//splash-logo‚ğƒNƒŠƒbƒN‚µ‚½‚çmain‚Ìdisplay‚ğflex‚É‚·‚é
+//splash-logoï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mainï¿½ï¿½displayï¿½ï¿½flexï¿½É‚ï¿½ï¿½ï¿½
 const splashLogo = document.getElementById('splash-logo')
 splashLogo.addEventListener('click',()=>{
   document.getElementById('main').classList.toggle("main");
@@ -21,39 +22,39 @@ splashLogo.addEventListener('click',()=>{
 });
 
 
-//ƒ‰ƒ“ƒ_ƒ€‚È•¶š‚ğì‚é‚½‚ß‚ÌŠÖ”
+//ãƒ©ãƒ³ãƒ€ãƒ ãªæ–‡å­—ã‚’ã¤ãã‚‹//rã®from to ã‚’å¤–ã«
 function r(from, to) {
   return ~~(Math.random() * (to - from + 1) + from);
 }
 
-function pick() {//r‚É“n‚·ˆø”‚Ì”‚©‚ç-1
+function pick() {//rã®fromãŒ0 to(argumentsã®lengthã‹ã‚‰-1)
   return arguments[r(0, arguments.length - 1)];
 }
 
 function getChar() {
-  return String.fromCharCode(pick(//utf16‚Ìƒ‰ƒ“ƒ_ƒ€‚È•¶š—ñ‚ğ¶¬
+  return String.fromCharCode(pick(//ã®æˆ»ã‚Šå€¤ã‚’è¨­å®š
     r(0x3041, 0x30ff),
     r(0x2000, 0x206f),
     r(0x0020, 0x003f)
   ));
 }
 function loop(fn, delay) {
-  let stamp = Date.now();//“ú•t‚Ìæ“¾
+  let stamp = Date.now();//ä»Šã®æ™‚åˆ»
   function _loop() {
-    if (Date.now() - stamp >= delay) {
+    if (Date.now() - stamp >= delay) {//ä»Šã®æ™‚åˆ»-ä»Šã®æ™‚åˆ» delayä»¥ä¸Š
       fn(); stamp = Date.now();
     }
-    requestAnimationFrame(_loop);
+    requestAnimationFrame(_loop);//_loopã‚’requestAnimationFrame
   }
   requestAnimationFrame(_loop);
 }
-class Char {
+class Char {//spanä½œã‚‹class
   constructor() {
-    this.element = document.createElement('span');//span‚Ì¶¬
+    this.element = document.createElement('span');//span
     this.mutate();
   }
   mutate() {
-    this.element.textContent = getChar();//element‚ÌtextContentæ“¾
+    this.element.textContent = getChar();//elementã‚’textContent
   }
 }
 class Trail {
@@ -131,12 +132,50 @@ class Rain {
   }
 }
 
+const mojimoji = ['aaaaa'];
+
 const main = document.querySelector('main');
 for (let i = 0; i < 50; ++i) {
   new Rain({ target: main, row: 100 });
 };
 
-//ƒŠƒ[ƒh‚ÉƒXƒNƒ[ƒ‹TOP‚É–ß‚·ˆ—
+//Topã¸æ›´æ–°ã—ã¦æˆ»ã‚‹
 $(function() {
   $('html,body').animate({ scrollTop: 0 }, '1');
 });
+
+//éš ã—ã‚³ãƒãƒ³ãƒ‰
+let typeText = "matrix"
+let type_i = 0;
+let type_l = typeText.length;
+let adio = new Audio('img/01.mp3');
+
+window.addEventListener('keydown' , push_Keydown)
+function push_Keydown(e){
+  let keyCode = e.key;
+  if (typeText.charAt(type_i) == keyCode){
+    console.log(keyCode)
+    type_i++;
+    console.log('ok')
+  
+  if (type_l-type_i ===0){
+    console.log('yes')
+   //styleã®è¿½åŠ 
+    document.getElementById('main').style.cssText = "opacity:0";
+    document.getElementById('max').classList.add('maxcahnge')
+    //å¿…è¦ã®ãªã„è¦ç´ ã¯æ¶ˆã™
+    document.getElementById('splash-logo').style.cssText = "opacity:0"
+    document.getElementById('about').style.cssText = "opacity:0"
+    document.getElementById('mtext').style.cssText = "opacity:0"
+    document.getElementById('member').style.cssText = "opacity:0"
+    document.getElementById('contact').style.cssText = "opacity:0"
+    //ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«Topã¸
+    window.scrollTo({
+      top:0,
+      behavior: "smooth"
+    });
+    adio.play();
+    adio.loop = true;
+  };
+  };
+};

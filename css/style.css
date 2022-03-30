@@ -30,6 +30,7 @@ body {
 
 p {
   line-height: 1;
+  opacity: 1;
 }
 span {
   display: block;
@@ -40,6 +41,42 @@ span {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
+
+#max{
+  display: block;
+  font-size: 0.9vmax;
+  color: #000;
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+}
+
+#max h3{
+  line-height: 0.2;
+}
+
+.maxcahnge{
+  animation-name: colorchange;
+  /* アニメーションの終了 */
+  animation-fill-mode: forwards;
+  /*スタート遅らせる*/
+  animation-delay: 3s;
+  animation-duration: 8s;
+  animation-timing-function: ease;
+}
+
+@keyframes colorchange{
+  0%{
+    color: #9bff9b04;
+  }
+
+  100%{
+    color: #009f00;
+    text-shadow:6px 3px 1px rgba(145, 255, 0, 0.207);
+  }
+}
+
 
 #splash-logo {
   position: absolute;
